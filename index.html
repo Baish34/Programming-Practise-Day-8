@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    .coloredSection1 {
+      background-color: #00ff00;
+    }
+
+    .coloredSection2 {
+      background-color: #b0ff00;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="color">Enter Color:</label>
+  <input type="text" id="color" placeholder="e.g.,#00ff00" />
+  <button id="section1Button">Change Color Section 1</button>
+  <button id="section2Button">Change Color Section 2</button>
+  <p id="errorMessage"></p>
+
+  <section id="section1" class="coloredSection1">
+    Section 1
+  </section>
+
+  <section id="section2" class="coloredSection2">
+    Section 2
+  </section>
+
+  <script>
+    const colorInput = document.querySelector("#color");
+    const section1Button = document.querySelector("#section1Button");
+    const section2Button = document.querySelector("#section2Button");
+    const section1 = document.querySelector("#section1");
+    const section2 = document.querySelector("#section2");
+    const errorMessage = document.querySelector("#errorMessage");
+
+    section1Button.addEventListener("click", () => {
+      const color = colorInput.value;
+      if (color.length === 0) {
+        errorMessage.textContent = "Please enter a color code.";
+      } else {
+        section1.style.backgroundColor = color;
+        errorMessage.textContent = "";
+      }
+    });
+
+    section2Button.addEventListener("click", () => {
+      const color = colorInput.value;
+      if (color.length === 0) {
+        errorMessage.textContent = "Please enter a color code.";
+      } else {
+        section2.style.backgroundColor = color;
+        errorMessage.textContent = "";
+      }
+    });
+
+  </script>
+</body>
+
+</html>
